@@ -1,12 +1,25 @@
+#!/bin/bash
+###########################################################
+# Project Name: vengadam jenkins
+# By: Vengadam (https://crackthelimits.tk)
+# VERSION: 1.1 | Date: 19-july-2020 | updated the repository key 
+# NOTE: Please always keep this header!
+###########################################################
+echo "Updating your pi"
 sudo apt update
 sudo apt upgrade -y
+echo "Downloading and installing dependencies "
 sudo apt install openjdk-11-jre -y
 java --version
+echo "Adding gpg key"
 sudo wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 sudo echo "deb https://pkg.jenkins.io/debian binary/" >> /etc/apt/sources.list.d/jenkins.list
 sudo apt update
+echo "Downloading and installing jenkins"
 sudo apt install jenkins -y
+echo "ip address of your pi"
 hostname -I
+sleep 10
 echo "the following is your jenkins password"
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 echo "enter the following command to get your jenkins password"
